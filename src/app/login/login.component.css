@@ -1,0 +1,173 @@
+
+#content{
+  display:flex;
+  padding-bottom:0px;
+}
+.left-container-background{
+  flex-basis:50%;
+  background-image: url('../../assets/background-login.jpg');
+
+  
+  margin:0;
+
+}
+.left-container{
+  background-color: rgba(0, 0, 0, 0.7);
+  width:100%;
+  height:100%;
+}
+.left-container-content{
+  margin-left:100px;
+  color:white;
+}
+
+
+
+.left-container-content h1 {
+  margin-top:-30px;
+  font-size:350%;
+}   
+
+.left-container-content hr{
+  border-color:white;
+  width:60%;
+  float:left;
+  opacity:0.7;
+  margin-top:-30px;
+}
+
+.left-container-content h3 {
+  font-weight: lighter;
+  font-size:150%;
+
+}
+
+.left-container-content p{
+  margin-top:-38px;
+}
+
+
+.right-container{
+  flex-basis:50%;
+
+
+}
+.right-container-content{
+  width:50%;
+  margin:auto;
+  
+}
+
+
+.right-container-content h1 {
+  
+  font-size:250%;
+  color:#425974;
+}
+.right-container-content #allianceLogo {
+  margin-left:25%;
+}
+.right-container-content mat-form-field {
+  margin:auto;
+  width:100%;
+}
+.right-container-content mat-checkbox {
+  margin:auto;
+  width:100%;
+}
+.right-container-content button {
+  margin:auto;
+  width:50%;
+}
+
+.right-container-content .square{
+
+  margin-top:20px;
+  margin-bottom:20px;
+  width: 70px;
+  height: 5px;
+  background-color: #ed3b3b;
+
+}
+
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+#button{
+  background-color:#ed3b3b ;
+  color:white;
+  width:100%;
+  height:50px;
+}
+
+.center-button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.left-container-content {
+  animation: slide-in 1s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #content{
+    display:block;
+    padding-bottom:0px;
+  }
+
+  .left-container{
+    display:none;
+  }
+
+  .right-container-content{
+    width:80%;
+    margin:auto;
+    
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+  :root{
+    --dark-color:#EB2224;
+    --light-color: #FFC7C7;
+  }
+
+  svg {
+    cursor:pointer;
+  }
+
+  #dark{
+    fill: var(--dark-color);
+  }
+  #light{
+    fill:var(--light-color);
+  }

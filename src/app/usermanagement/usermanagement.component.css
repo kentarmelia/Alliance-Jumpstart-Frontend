@@ -1,0 +1,139 @@
+#user_export{
+    width:120px;
+    background-color: white;
+    height:57px;
+}   
+
+#user_add{
+    width:120px;
+    font-size:100%;
+    height:57px;
+    background-color: var(--primary-color);
+    color:white;
+
+}
+
+.search-bar{
+    flex-basis:50%;
+}
+
+#user_filter{
+    flex-basis: 10%;
+    width:120px;
+    background-color: white;
+    height:57px;
+    margin-left:10px;
+    margin-right:10px;
+}
+#user_sort{
+    flex-basis:10%;
+    width:120px;
+    background-color: white;
+    height:57px;
+    margin-left:10px;
+    margin-right:10px;
+}
+.flexer{
+    display:flex;
+    align-items: center;
+    vertical-align: middle;
+    
+}
+
+.left-container{
+    flex-basis:70%;
+}
+.right-container{
+    flex-basis:30%;
+    
+}
+
+@media (max-width: 572px) {
+    .flexer{
+        display:block;
+    }
+    .left-container{
+        flex-basis:100%;
+    }
+    .right-container{
+        flex-basis:100%;
+        width:100%;
+        justify-content: space-evenly;
+    }
+    .table_email{
+        display:none;
+    }
+}
+
+
+.modal-body mat-form-field{
+    width:100%;
+}
+.modal-body img{
+    width:100px;
+    margin:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:100%;
+    margin-bottom:50px;
+}
+
+.flexer_button{
+    display:flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin-top:20px;
+    margin-bottom:20px;
+    border-radius:6.5px;
+}
+.flexer_button .left_image{
+    flex-basis:50%;
+}
+.flexer_button .left_image img{
+    margin:auto;
+    width:80px;
+
+}
+.flexer_button .right_text{
+    flex-basis:50%;
+
+}
+
+.modal-content{
+    width:500px;
+}
+
+.flexer_button{
+    font-weight: lighter;
+}
+.right-text h3{
+    font-weight: lighter;
+}
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+  }
+  
+  /* IMAGE STYLES */
+  [type=radio] + .flexer_button {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* CHECKED STYLES */
+  [type=radio]:checked + .flexer_button {
+    background: rgb(255,101,101);
+    background: radial-gradient(circle, rgba(255,101,101,1) 0%, rgba(237,59,59,1) 100%);
+    color:white;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 101, 101, 0.5);
+    transition: all 0.3s ease-in-out;
+  }
+
+  hr{
+    opacity: 0.2;
+  }

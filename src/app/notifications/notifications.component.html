@@ -1,0 +1,81 @@
+<mat-toolbar>
+    Alliance
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+  
+      <img
+        class="avatar mat-elevation-z8"
+        src="https://source.unsplash.com/c_GmwfHBDzk/200x200"
+      />
+  
+      <h4 class="name">Nathaniel C. Tiempo</h4>
+      <span class="designation">User</span>
+      
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/profile">
+        <mat-icon>person</mat-icon>
+        <span>User Accounts</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="tickets">
+        <mat-icon>home</mat-icon>
+        <span>Tickets</span>
+      </button>
+  
+      <button mat-button class="menu-button" routerLink="settings">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" style="margin-top: 100%;" routerLink="logout">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+  
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z4">
+        Notifications
+  
+        <div class="tickets">
+        <div>
+          <h3>Today</h3>
+          <mat-icon>person</mat-icon>
+          <span> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atq</span>
+        </div>
+        <div>
+            <h3>This Week</h3>
+            <mat-icon>person</mat-icon>
+            <span> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atq</span>
+          </div>
+          <div>
+            <h3>This Month</h3>
+            <mat-icon>person</mat-icon>
+            <span> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atq</span>
+          </div>
+        
+        </div>
+  
+        <div style="padding-left: 40%;">
+        <button mat-button routerLink="/notifications">
+          <mat-icon>notifications</mat-icon>
+        </button>
+  
+      </div> 
+      </div>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  <br><br><br>
+  
+  <app-footer></app-footer>
+  

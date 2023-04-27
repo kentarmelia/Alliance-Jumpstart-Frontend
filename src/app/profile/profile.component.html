@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      /* Add overflow property to prevent scrolling */
+    }
+
+    .fullscreen img {
+      max-height: 100%;
+      max-width: 100%;
+      margin: auto;
+      border: none;
+      border-radius: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #hidden_image {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <app-loading *ngIf="isLoading"></app-loading>
+  <app-sidebar></app-sidebar>
+  <main class="main">
+  
+
+    <section>
+
+      <ng-template #modalContent>
+        <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Confirm Log out</h4>
+
+          </div>
+          <div class="modal-body">
+       
+              <p>Are you sure you want to log out?</p>
+          
+          </div>
+          <div class="modal-footer">
+              <button mat-flat-button color="warn" type="button" class="btn btn-primary"
+                  (click)="onConfirm()">Confirm</button>
+              <button type="button" class="btn btn-secondary" (click)="onClose()" mat-stroked-button>Cancel</button>
+
+          </div>
+      </div>
+    
+      </ng-template>
+
+      <div class="section">
+        <div class="dp_section">
+          <img class="profile_image" [src]="profileImage" alt=""
+            onclick="openFullscreen()" />
+          <img id="hidden_image" [src]="profileImage" alt="" style="display: none" />
+        </div>
+        <div class="container">
+          <div class="left-container">
+            <div class="name">
+              <h1>{{ firstname }} {{ lastname }}</h1>
+              <h3><span class="mdi mdi-account"></span> {{ user_type }}</h3>
+              <div class="square"></div>
+            </div>
+            <div class="basicInfo">
+
+              <div class="flexer">
+                <h1>Basic Info
+                  <br>
+                  
+                </h1>
+                     
+                <span></span>
+                <button mat-stroked-button>
+                  <h1><span class="mdi mdi-pencil" id="pencil"></span> Edit Profile</h1>
+                </button>
+              </div>
+              <hr>
+              <h3><span class="mdi mdi-phone"></span> {{ contact_number }}</h3>
+              <h3><span class="mdi mdi-email"></span> {{ email }}</h3>
+              <h3>
+                <span class="mdi mdi-calendar-month"></span> Joined {{ month }} {{year}}
+              </h3>
+            </div>
+
+          </div>
+          <div class="right-container">
+            <div class="actions">
+              <h1>Settings</h1>
+              <hr>
+              <div class="section pointer">
+                <div class="flexer">
+                <img src="../../assets/icons/appearance.png" alt="">
+                <h1> Change Appearance</h1>
+                </div>
+              </div>
+              <br>
+           <div class="section pointer">
+                <div class="flexer">
+                <img src="../../assets/icons/password.png" alt="">
+                <h1>Change Password</h1>
+                </div>
+       </div>
+              <br>
+          <div class="section pointer"  (click)="openLogoutModal()" >
+                <div class="flexer">
+                <img src="../../assets/icons/logout.png" alt="">
+                <h1> Log out</h1>
+                </div>
+           </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="../../assets/image.js"></script>
+</body>
+
+</html>

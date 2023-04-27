@@ -1,0 +1,80 @@
+<app-sidebar></app-sidebar>
+<app-loading *ngIf="isLoading"></app-loading>
+<app-sidebar></app-sidebar>
+
+<body>
+
+ 
+    <main class="main">
+        <section>
+
+          <ng-template #modalContent>
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title">Add Ticket</h4>
+    
+              </div>
+              <div class="modal-body">
+           
+                  <p>Are you sure you want to log out?</p>
+              
+              </div>
+              <div class="modal-footer">
+                  <button mat-flat-button color="warn" type="button" class="btn btn-primary"
+                      (click)="addTicket()">Add</button>
+                  <button type="button" class="btn btn-secondary" (click)="onClose()" mat-stroked-button>Cancel</button>
+    
+              </div>
+          </div>
+        
+          </ng-template>
+          
+          <h1>My Tickets</h1>
+          <br>
+          <div class="container">
+            <div class="search">
+              <input type="text" placeholder="Search...">
+              <button>Search</button>   
+            </div>
+            <div class="filter_options">
+              <select>
+                <option value="pending">Pending</option>
+                <option value="finished">Finished</option>
+              </select>
+              <select>
+                <option value="ascending">Ascending</option>
+                <option value="descending">Descending</option>
+              </select>
+              <select>
+                <option value="today">Today</option>
+                <option value="this-week">This Week</option>
+                <option value="last-week">Last Week</option>
+                <option value="this-month">This Month</option>
+                <option value="all-time">All Time</option>
+              </select>
+            </div>
+          </div>
+          <hr>
+          <br>
+          <div class="layout-controls">
+            <button id="list-view-btn" [class.active]="isListView" (click)="toggleListView()">List View</button>
+            <button id="grid-view-btn" [class.active]="isGridView" (click)="toggleGridView()">Grid View</button>
+           
+          </div>
+      
+          <ul class="file-list" [ngClass]="{'list-layout': isListView, 'grid-layout': isGridView}">
+            <li class="file-item" *ngFor="let file of files" [@fadeInOut]>
+              <a href="#">{{ file.name }}</a>
+              <span class="date">{{ file.date }}</span>
+              <span class="size">{{ file.size }}</span>
+            </li>
+          </ul>
+        </section>
+        <button mat-fab color="warn" aria-label="add ticket" id="add_ticket" (click)="openAddTicketModal()">
+            <mat-icon>add</mat-icon>
+          </button>
+          
+      </main>
+  
+  </body>
+  

@@ -1,0 +1,60 @@
+
+<app-loading *ngIf="isLoading"></app-loading>
+<div id="content">
+
+  <div class="left-container-background">
+    <div class="left-container">
+    <div class="left-container-content">
+      <img [src]="allianceWhiteImg" alt="Alliance Logo" id="allianceLogo" width="200" height="200" >
+      <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <h3>It's nice to see you again,</h3>
+      <br>
+      <h1>Welcome Back!</h1>
+      <hr>
+      <br>
+      <p>Please enter your username and password to access your account. </p>
+    </div>
+  </div>
+
+  </div>
+ 
+  <div class="right-container">
+      <div class="right-container-content">
+        <br><br>
+        <img [src]="allianceImg" alt="Alliance Logo" id="allianceLogo"  width="200" height="200" >
+      <h1>Log In</h1>
+      <div class="square"></div>
+      <form [formGroup] = "loginForm" (submit)="onSubmit()">
+      <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="email">
+          <button mat-icon-button matSuffix >
+              <mat-icon>person</mat-icon>
+            </button>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+      </mat-form-field>
+      <br>
+      <!-- <mat-checkbox [(ngModel)]="isChecked">Keep me signed in!</mat-checkbox> -->
+      <p *ngIf="isInvalidLogin" class="errormessage">Invalid Log in</p>
+    
+
+
+  
+ 
+    <br>  
+    <button type="submit" mat-flat-button id="button">
+      Log in
+    </button>
+  </form>
+  </div>
+    </div>
+    </div>
+<br>
+    <app-footer></app-footer>

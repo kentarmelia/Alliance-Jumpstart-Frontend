@@ -1,0 +1,228 @@
+<app-sidebar></app-sidebar>
+<app-loading *ngIf="isLoading"></app-loading>
+<main class="main">
+  
+  <ng-template #modalContent>
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="modal-title">Add User</h4>
+
+      </div>
+
+      <div class="modal-body">
+
+        <img src="../../assets/profile_image.png" alt="">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="user_email">
+        </mat-form-field>
+
+        <br><br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Firstname</mat-label>
+          <input matInput [(ngModel)]="user_firstname">
+        </mat-form-field>
+        <br><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Lastname</mat-label>
+          <input matInput [(ngModel)]="user_lastname">
+        </mat-form-field>
+        <br><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Contact Number</mat-label>
+          <input matInput type="text" [(ngModel)]="user_contact">
+        </mat-form-field>
+        <br><br>
+ 
+        <h3>User Type:</h3>
+
+        <hr>
+        
+        <ng-container *ngFor="let user of users_type_option">
+          <label>
+            <input type="radio" name="user_type" [value]="user.value" [checked]="user.checked" (change)="logValue($event)">
+            <div class="flexer_button">
+              <div class="left_image">  
+                <img [src]="user.imageUrl">
+              </div>
+              <div class="right_text">
+                <h3>{{ user.label }}</h3>
+              </div>
+            </div>
+          </label>
+        </ng-container>
+        
+        
+
+      </div>
+ 
+      <div class="modal-footer">
+          <button mat-flat-button color="warn" type="button"
+              (click)="onConfirm()">Add</button>
+          <button type="button" class="btn btn-secondary" (click)="onClose()" mat-stroked-button>Cancel</button>
+
+      </div>
+  </div>
+
+  </ng-template>
+
+  <ng-template #viewUserModalContent>
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="modal-title">View User</h4>
+
+      </div>
+
+      <div class="modal-body">
+
+        <img src="../../assets/profile_image.png" alt="">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="user_email" readonly>
+        </mat-form-field>
+
+        <br><br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Firstname</mat-label>
+          <input matInput [(ngModel)]="user_firstname" readonly>
+        </mat-form-field>
+        <br><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Lastname</mat-label>
+          <input matInput [(ngModel)]="user_lastname" readonly>
+        </mat-form-field>
+        <br><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Contact Number</mat-label>
+          <input matInput type="text" [(ngModel)]="user_contact" readonly>
+        </mat-form-field>
+        <br><br>
+ 
+        <h3>User Type:</h3>
+
+        <hr>
+        
+        <ng-container>
+          <label>
+            <input type="radio" name="user_type" [value]="user_type_option_individual.value" [checked]="user_type_option_individual.checked">
+            <div class="flexer_button">
+              <div class="left_image">  
+                <img [src]="user_type_option_individual.imageUrl">
+              </div>
+              <div class="right_text">
+                <h3>{{ user_type_option_individual.label }}</h3>
+              </div>
+            </div>
+          </label>
+        </ng-container>
+        
+        
+
+      </div>
+ 
+      <div class="modal-footer">
+          <button mat-flat-button color="warn" type="button"
+             >Add</button>
+          <button type="button" class="btn btn-secondary"  mat-stroked-button (click)="onCloseViewUserModal()">Close</button>
+
+      </div>
+  </div>
+  </ng-template>
+
+  <section>
+    <div class="flexer">
+      <div class="left-container">
+    <h2>User Account Management</h2>
+  </div>
+    <div class="right-container">
+    <mat-form-field id="user_export">
+      <mat-label>Export</mat-label>
+      <mat-select>
+        <mat-option value="one">CSV</mat-option>
+        <mat-option value="two">Excel</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="submit" mat-stroked-button id="user_add" (click)="openAddUserModal()"><span class="mdi mdi-account-multiple-plus"></span> Add User   </button>
+  </div>
+  </div>
+    <br>
+    <hr>
+    <div class="flexer">
+ 
+    <div class="search-bar">
+      <input type="text" placeholder="Search | ID,Name,Contact Number" [(ngModel)]="searchQuery"  (ngModelChange)="onSearchChange()">  
+      <button  mat-flat-button  *ngIf="isSearch" (click)="clearSearch()" ><span class="mdi mdi-close-circle" style="font-size:150%; opacity:0.5;"></span> </button>
+      <button type="submit" mat-flat-button (click)="searchUser()">    <span class="mdi mdi-magnify"></span></button>
+    </div>
+    <br>
+ 
+    <mat-form-field id="user_filter">
+      <mat-label>Filter</mat-label>
+      <mat-select [(ngModel)]="filter" (ngModelChange)="onSelectFilterChange($event)">
+        <mat-option value="all" >All</mat-option>
+        <mat-option value="client">Client</mat-option>
+        <mat-option value="admin">Admin</mat-option>
+        <mat-option value="sales">Sales</mat-option>
+        <mat-option value="treasury">Treasury</mat-option>
+        <mat-option value="billing">Billing</mat-option>
+        <mat-option value="collection">Collection</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field id="user_sort">
+      <mat-label>Sort</mat-label>
+      <mat-select  [(ngModel)]="sort" (ngModelChange)="onSelectSortChange($event)">
+        <mat-option value="asc">Ascending</mat-option>
+        <mat-option value="desc">Descending</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+<br>
+    <mat-paginator [length]="pageCount"
+              [pageSize]="maxRecords"
+              [pageIndex] = "pageNumber"
+              [pageSizeOptions]="pageSizeOptions"
+              aria-label="Select page"
+              (page)="onPageChanged($event)"
+              >
+</mat-paginator>
+
+
+    <div class="table-wrap">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th id="table_name">Name</th>
+            <th class="table_email">Email</th>
+            <th>User Type</th>
+   
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let each of userData" (click)="openViewUserModal(each.userID)" class="user_row">
+      
+            <td>{{each.userID}}</td>
+            <td id="table_name">
+              <div class="flexer">
+            <img [src]="apiUrl+'/user/image/'+each.userID" alt="" style="width:30px;height:30px; margin-right:5px;border-radius:100%;">  {{each.firstname}} {{each.lastname}}
+          </div>
+            </td>
+            <td class="table_email">{{each.email}}</td>
+            <td>{{each.user_type}}</td>
+     
+          </tr>
+
+       
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+</main>

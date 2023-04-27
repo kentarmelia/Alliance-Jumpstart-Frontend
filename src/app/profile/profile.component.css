@@ -1,0 +1,163 @@
+.section{
+    padding:0;
+    margin:0;
+}
+
+
+      
+
+.dp_section{
+    background-image: url('../../assets/alliance_cover.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 300px; 
+
+}
+
+.dp_section .profile_image{
+    border: 10px solid white;
+    border-radius: 100%;
+    width:15%;
+    margin-top:150px;
+    margin-left:50px;
+    cursor:pointer;
+}
+.container{
+    margin-top:5%;
+}
+
+@media (max-width: 572px) {
+    .dp_section{
+        
+        display:flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+
+  
+
+    .dp_section .profile_image{
+        border: 10px solid white;
+        border-radius: 100%;
+        margin-left:0;
+        width:50%;
+        margin-top:80%;
+    }
+    .name{
+        margin-top:10%;
+        text-align: center;
+        margin:auto;
+        justify-content: center;
+        align-content: center;
+    }
+    .square{
+        margin:auto;
+    }
+
+    .main{
+        margin:0;
+        width:100%;
+    }
+
+    #pencil{
+        display:none;
+    }
+
+
+}
+
+@media (min-width: 572px) {
+  
+
+}
+
+@media (max-height: 434px) {
+    .container{
+        display:block;
+    }
+    .left-container{
+        display:block;
+    }
+    .right-container{
+        display:block;
+    }
+
+}
+
+.name{
+    margin-top:7%;
+    padding:50px;
+    font-size:150%;
+}
+
+.name h1{
+    color:var(--secondary-color);
+}
+.name h3{
+
+}
+
+
+.right-container .actions{
+    margin-top:-5%;
+    padding:50px;
+}
+.right-container .actions hr{
+    opacity:0;
+    z-index: -1;
+}
+.right-container .actions .section{
+    height:100px;
+    padding:20px;
+    width:100%;
+}
+.right-container .actions .section .flexer{
+    display:flex;
+
+    width:100%;
+ 
+}
+.right-container .actions .section .flexer img{
+    height:50px;
+  
+   
+   
+}
+.right-container .actions .section .flexer h1{
+    margin-left:5px;
+    margin-top:15px;
+    font-size:120%;
+    font-weight: 500;
+ 
+}
+.basicInfo{
+    margin-top:-5%;
+    padding:50px;
+ 
+    
+}
+.basicInfo hr{
+    opacity: 0;
+}
+.basicInfo .flexer {
+    display: flex;
+    align-items: center; /* Center elements vertically */
+}
+.basicInfo h1{
+    flex-basis:40%;
+}
+.basicInfo span{
+    flex-basis:20%;
+}
+.basicInfo button{
+    flex-basis:40%;
+    height:50px;
+  
+}
+
+.basicInfo .flexer button h1{
+    font-size:120%;
+}

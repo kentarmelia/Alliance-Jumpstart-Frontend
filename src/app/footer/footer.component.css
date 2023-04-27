@@ -1,0 +1,153 @@
+footer{
+    margin-top:50px;
+    border-top:10px solid #ed3b3b;
+    background-color: #72777d;
+    color:white;
+
+    position: relative;
+    margin-top: -50px; /* Set the footer to overlap the main content area */
+    
+    width: 100%;
+}
+
+
+.upper-container{
+    display:flex;
+    width:100%;
+    justify-content: space-around;
+}
+
+.upper-container .upper-content-main{
+    flex-basis:50%;
+   
+    display:flex;
+}
+.upper-container .upper-content{
+    flex-basis:25%;
+    padding:10px;
+}
+.upper-container .upper-content-colspan{
+    flex-basis:25%;
+    padding:10px;
+   
+}
+
+.upper-container .upper-content ul{
+    list-style: none;
+}
+.upper-container .upper-content p {
+    font-weight:500;
+}
+.upper-container .upper-content ul li{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:-40px;
+
+}
+.upper-container .upper-content ul li a{
+    text-decoration: none;
+    color:white;
+    font-weight: lighter;
+}
+
+
+.lower-container{
+    display:flex;
+    width:100%;
+    justify-content: space-around;
+}
+
+.lower-container .lower-content-main{
+    flex-basis:50%;
+    display:flex;
+}
+.lower-container .lower-content-image{
+    flex-basis:30%;
+    padding:10px;
+}
+.lower-container .lower-content-social{
+    flex-basis:60%;
+    padding:10px;
+  
+}
+.lower-container .lower-content-social-icons{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    float:right;
+ 
+}
+.lower-container .lower-content-social-icons a{
+   
+    align-items: center;
+    justify-content: center;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.lower-container .lower-content-social-icons a img{
+    
+   
+}
+
+
+.lower-container .lower-content-colspan{
+    flex-basis:25%;
+    padding:10px;
+   
+}
+
+
+#line-divider{
+    width:80%;
+    opacity: 0.3;
+}
+
+#allianceImg-footer{
+    width:150px;
+}
+
+.footer-social{
+    width:30px;
+}
+
+.icon-container {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .icon-container:hover img {
+    filter: none;
+  }
+  
+  .icon-container img {
+ 
+    height: auto;
+    filter:brightness(10%);
+   
+    transition: filter 0.3s ease-in-out;
+  }
+
+
+@media only screen and (max-width: 1000px) {
+    .upper-container{
+        display:block;
+        width:100%;
+      
+    }
+
+    .upper-container .upper-content-colspan{
+        display:none;
+       
+    }
+    
+    .upper-container .upper-content-main{
+        text-align: center;
+        display:block;
+    }
+
+    .upper-container .upper-content{
+    width:90%;
+    padding:10px;
+    }
+  }

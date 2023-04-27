@@ -1,0 +1,210 @@
+/* SIDEBAR CSS */
+  /* ------------------------------------------------------------------------------------------ */
+  .sidebar {
+    background-color: white;
+    position: fixed;
+    transition: width 0.5s ease;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    z-index: 9999999;
+  }
+  
+  .sidebar nav {
+    height: 100%;
+  }
+  
+  .sidebar .sidebar__nav {
+    display: flex;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sidebar .sidebar__nav li{
+    margin:10px;
+    margin-left:0px;
+    margin-right:0px;
+    cursor: pointer;
+  }
+
+  .none{
+    background-color: none;
+  }
+  
+  .sidebar .sidebar__nav .sidebar__nav__link {
+    align-items: center;
+    color: #425974;
+    display: flex;
+    padding-left: 20px;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin:auto;
+    width:95%;
+  }
+
+
+  .img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    cursor:pointer;
+ 
+    border-radius: 100%; /* make the div a circle */
+    width:35px;
+    height:35px;
+    overflow: hidden; /* hide any part of the image that extends beyond the circle */
+  
+    /* center the image within the div */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* ensure the image fills the div while preserving its aspect ratio */
+  }
+  
+  .sidebar .sidebar__nav .sidebar__nav__link:hover {
+    transition-delay: 0.1s;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 200px;
+    color: #ed3b3b;
+    opacity: 1;
+  }
+
+  .sidebar .sidebar__nav #alliance_sidenav.no-hover-bg-color .sidebar__nav__link:hover {
+    background-color: transparent;
+    color: #425974;
+  }
+  .sidebar .sidebar__nav .sidebar__nav__text {
+    transition: opacity 2s ease;
+    display: none;
+    margin-left: 10px;
+    margin-right: auto;
+    white-space: nowrap;
+    cursor:pointer;
+  }
+  .sidebar .sidebar__nav .sidebar__nav__text h3 {
+      
+      margin-bottom:0px;
+      width:100%;
+  }
+  
+  .sidebar .sidebar__nav .sidebar__nav__text p {
+      font-size:90%;
+      margin-top:0px;
+      margin-bottom:-20px;
+  }
+  
+  .sidebar .sidebar__nav i {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    cursor:pointer;
+
+    
+  }
+  
+
+  
+  #alliance_sidenav{
+    display:block;
+  }
+
+  #alliance_text_logo{
+    transition: color 0.5s ease, background-color 0.5s ease;
+    margin-bottom:-15px;
+    margin-top:0px;
+  }
+
+  #allianceLogo_square{
+    transition: color 0.5s ease, background-color 0.5s ease;
+  }
+  @media (max-width: 572px) {
+    .sidebar {
+      bottom: 0;
+      width: 100%;
+    }
+  
+    .sidebar .sidebar__nav {
+      justify-content: center;
+    }
+  
+    .sidebar .sidebar__nav .sidebar__nav__link {
+      height: 100%;
+      padding: 0.75em;
+      cursor:pointer;
+    }
+  
+    .sidebar .sidebar__nav i {
+      font-size: 2rem;
+    }
+
+    #alliance_sidenav{
+      display:none;
+    }
+    #alliance_text_logo{
+      transition: color 0.5s ease, background-color 0.5s ease;
+    }
+  
+    #allianceLogo_square{
+      transition: color 0.5s ease, background-color 0.5s ease;
+    }
+
+
+  }
+  
+  @media (min-width: 572px) {
+    .sidebar {
+      height: 100vh;
+      left: 0;
+      width: var(--sidebar-width);
+    }
+  
+    .sidebar:hover {
+      width: 20rem;
+    }
+  
+    .sidebar .sidebar__nav {
+      flex-direction: column;
+    }
+  
+    .sidebar .sidebar__nav li:last-child {
+      margin-top: auto;
+    }
+
+    .sidebar .sidebar__nav li:first-child {
+      margin-bottom : auto;
+    }
+  
+  
+    .sidebar .sidebar__nav .sidebar__nav__link {
+      padding: 1em;
+    }
+  
+    .sidebar:hover .sidebar__nav .sidebar__nav__text {
+      display: inline;
+    }
+  
+    .sidebar .sidebar__nav i {
+      font-size: 2.5rem;
+    }
+    
+
+    #alliance_text_logo{
+      transition: color 0.5s ease, background-color 0.5s ease;
+    }
+  
+    #allianceLogo_square{
+      transition: color 0.5s ease, background-color 0.5s ease;
+    }
+  }
+  
+  @media (max-height: 434px) {
+    .sidebar {
+      overflow-y: scroll;
+    }
+ 
+  }

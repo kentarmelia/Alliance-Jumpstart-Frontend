@@ -1,0 +1,56 @@
+
+<aside class="sidebar">
+    <nav>
+      <ul class="sidebar__nav">
+        <li id="alliance_sidenav"  class="no-hover-bg-color">
+          <a href="#" class="none sidebar__nav__link">
+          
+            <img [src]="allianceSquare" alt="Alliance Logo" id="allianceLogo_square"  width="40" height="40" >
+          
+            <span class="sidebar__nav__text">
+              <img [src]="allianceText" alt="Alliance Logo" id="alliance_text_logo"  height="50" >
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar__nav__link" (click)="navigateDashboard()">
+            <i class="mdi mdi-view-dashboard"></i>
+            <span class="sidebar__nav__text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar__nav__link" (click)="navigateMyTickets()">
+            <i class="mdi mdi-ticket-account"></i>
+            <span class="sidebar__nav__text">My Tickets</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar__nav__link" (click)="navigateTicketManagement()">
+            <i class="mdi mdi-ticket-confirmation"></i>
+            <span class="sidebar__nav__text">Ticket Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar__nav__link" *ngIf="isAdmin" (click)="navigateUserManagement()">
+            <i class="mdi mdi-account"></i>
+            <span class="sidebar__nav__text">User Management</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar__nav__link" (click)="navigateProfile()">
+            <div class="img">
+              <img [src]="profileImage" alt="">
+            </div>
+          
+            <span class="sidebar__nav__text">
+              <p>{{email}}</p>
+              <h3>{{profileName}}</h3>
+              
+            
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <app-loading *ngIf="isLoading"></app-loading>

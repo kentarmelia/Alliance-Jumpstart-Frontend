@@ -1,0 +1,70 @@
+  
+<div id="content">
+    <br><br><br><br><br><br><br>
+    <img [src]="allianceImg" alt="Alliance Logo" id="allianceLogo" width="200" height="200" >
+    <div class="reg-container">
+        
+        <h3 style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; color: #ed3b3b; text-align: center;">Service Charge App</h3>
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput type="text">
+            <button mat-icon-button matSuffix >
+                <mat-icon>person</mat-icon>
+              </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Email Address</mat-label>
+            <input matInput type="text">
+            <button mat-icon-button matSuffix >
+                <mat-icon>person</mat-icon>
+              </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-label>Birthday</mat-label>
+        <div style="display: flex">
+            <mat-form-field>
+                <mat-select placeholder="Day">
+                  <mat-option *ngFor="let day of days" [value]="day">{{ day }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              
+              <mat-form-field>
+                <mat-select placeholder="Month">
+                  <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              
+              <mat-form-field>
+                <mat-select placeholder="Year">
+                  <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              
+        </div>
+        <button mat-raised-button id="button" routerLink="/" style="top: 55%;right: 0%;">
+            Register
+        </button>
+        <br><br>
+        <mat-label>Already have an account?</mat-label><button mat-flat-button style=" font-weight: bold; color: #ed3b3b;" routerLink="/login">Sign in</button>
+    </div>
+</div>
+<br>
+      <app-footer></app-footer>
